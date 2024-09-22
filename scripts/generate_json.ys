@@ -1,0 +1,9 @@
+# Read the ISCAS benchmark Verilog file
+read_verilog $design_file
+
+# Set the top module (passed as a parameter)
+hierarchy -check -top $top_module
+
+# Write the design to a JSON file for further processing
+write_json ../design.json
+

@@ -1,0 +1,15 @@
+  # Read the Verilog file
+  read_verilog ../benchmarks/c17.v
+
+  # Set the top module
+  hierarchy -check -top c17
+
+  # Process the design, flatten it, and ensure standard logic gates are used
+  proc; flatten;
+  opt_clean -purge;  # Clean up unused logic
+  techmap;  # Map internal Yosys cells to standard gates
+  opt -full;
+
+  # Select the output wire and write the logic cone to the BLIF file
+  select -assert-output N22
+  write_blif ../logic_cones/logic_cone_N22.blif

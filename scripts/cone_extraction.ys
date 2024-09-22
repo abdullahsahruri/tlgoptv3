@@ -1,0 +1,16 @@
+# Read Verilog file
+read_verilog your_design.v
+
+# Set top module (replace `top_module` with the actual name)
+hierarchy -check -top top_module
+
+# Extract logic cones for each output and write to .blif files
+# Replace `output1`, `output2`, etc. with actual output names from your design
+extract -output output1
+write_blif ../logic_cones/logic_cone_output1.blif
+
+extract -output output2
+write_blif ../logic_cones/logic_cone_output2.blif
+
+# Repeat for all necessary outputs
+

@@ -1,0 +1,11 @@
+# Read the Verilog file
+read_verilog ../benchmarks/c17.v
+
+# Set the top module
+hierarchy -check -top c17
+
+# Process the design and flatten the hierarchy
+proc; flatten;
+
+# Write the whole design to JSON for debugging
+write_json ../design.json
